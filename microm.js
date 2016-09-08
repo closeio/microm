@@ -1,4 +1,3 @@
-var adapter = require("./bower_components/webrtc-adapter/adapter.js");
 var RecordRTC = require("./bower_components/recordrtc/RecordRTC.js");
 var Promise = require('rsvp').Promise;
 var Converter = require('./lib/converter');

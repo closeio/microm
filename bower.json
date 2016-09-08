@@ -23,7 +23,6 @@
   ],
   "dependencies": {
     "lamejs": "git://github.com/zzarcon/lamejs.git#master",
-    "webrtc-adapter": "~0.2.5",
     "recordrtc": "~5.2.3"
   },
   "devDependencies": {

@@ -54,15 +54,14 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var adapter = __webpack_require__(4);
-	var RecordRTC = __webpack_require__(5);
-	var Promise = __webpack_require__(6).Promise;
+	var RecordRTC = __webpack_require__(4);
+	var Promise = __webpack_require__(5).Promise;
 	var Converter = __webpack_require__(1);
 	var Player = __webpack_require__(2);
 	var config = __webpack_require__(3);
@@ -89,16 +88,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	   */
 
 	  _createClass(Microm, [{
-	    key: "record",
+	    key: 'record',
 	    value: function record() {
 	      this.isRecording = true;
 	      var media = navigator.mediaDevices.getUserMedia({ audio: true });
 
-	      media.then(this.startUserMedia.bind(this))["catch"](this.onUserMediaError.bind(this));
+	      media.then(this.startUserMedia.bind(this))['catch'](this.onUserMediaError.bind(this));
 	      return media;
 	    }
 	  }, {
-	    key: "stopRecording",
+	    key: 'stopRecording',
 	    value: function stopRecording() {
 	      var self = this;
 	      this.isRecording = false;
@@ -121,7 +120,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	  }, {
-	    key: "play",
+	    key: 'play',
 	    value: function play() {
 	      this.player.play();
 	    }
@@ -132,7 +131,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	  }, {
-	    key: "pause",
+	    key: 'pause',
 	    value: function pause() {
 	      this.player.pause();
 	    }
@@ -149,7 +148,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {Promise} Will be resolved with the mp3.
 	     */
 	  }, {
-	    key: "stop",
+	    key: 'stop',
 	    value: function stop() {
 	      var _this = this;
 
@@ -172,10 +171,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {Promise} 
 	     */
 	  }, {
-	    key: "getMp3",
+	    key: 'getMp3',
 	    value: function getMp3() {
 	      var blob = this.recordRTC.getBlob();
-	      // TODO: trow error if we don't have recordedData yet
+	      // TODO: throw error if we don't have recordedData yet
 	      return this.converter.toMp3(blob);
 	    }
 
@@ -185,7 +184,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {Blob} 
 	     */
 	  }, {
-	    key: "getWav",
+	    key: 'getWav',
 	    value: function getWav() {}
 
 	    /**
@@ -199,9 +198,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {String} 
 	     */
 	  }, {
-	    key: "getUrl",
+	    key: 'getUrl',
 	    value: function getUrl() {
-	      // TODO: trow error if mp3 is not ready
+	      // TODO: throw error if mp3 is not ready
 	      return this.mp3.url;
 	    }
 
@@ -211,9 +210,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {Blob} 
 	     */
 	  }, {
-	    key: "getBlob",
+	    key: 'getBlob',
 	    value: function getBlob() {
-	      // TODO: trow error if mp3 is not ready
+	      // TODO: throw error if mp3 is not ready
 	      return this.mp3.blob;
 	    }
 
@@ -223,9 +222,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {ArrayBuffer} 
 	     */
 	  }, {
-	    key: "getBuffer",
+	    key: 'getBuffer',
 	    value: function getBuffer() {
-	      // TODO: trow error if mp3 is not ready
+	      // TODO: throw error if mp3 is not ready
 	      return this.mp3.buffer;
 	    }
 
@@ -240,9 +239,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {Promise}
 	     */
 	  }, {
-	    key: "getBase64",
+	    key: 'getBase64',
 	    value: function getBase64() {
-	      // TODO: trow error if mp3 is not ready
+	      // TODO: throw error if mp3 is not ready
 	      return this.converter.toBase64(this.getBlob());
 	    }
 
@@ -254,7 +253,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}
 	     */
 	  }, {
-	    key: "download",
+	    key: 'download',
 	    value: function download() {
 	      var fileName = arguments.length <= 0 || arguments[0] === undefined ? 'micro_record' : arguments[0];
 
@@ -262,13 +261,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var click = document.createEvent("Event");
 
 	      link.href = this.getUrl();
-	      link.download = fileName + ".mp3";
+	      link.download = fileName + '.mp3';
 
 	      click.initEvent("click", true, true);
 	      link.dispatchEvent(click);
 	    }
 	  }, {
-	    key: "startUserMedia",
+	    key: 'startUserMedia',
 	    value: function startUserMedia(stream) {
 	      var recordRTC = RecordRTC(stream, { type: 'audio' });
 	      recordRTC.startRecording();
@@ -277,7 +276,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.isRecording = true;
 	    }
 	  }, {
-	    key: "onUserMediaError",
+	    key: 'onUserMediaError',
 	    value: function onUserMediaError() {}
 	    // TODO: Handle recording error
 
@@ -289,9 +288,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     */
 
 	  }, {
-	    key: "on",
+	    key: 'on',
 	    value: function on(eventName, handler) {
-	      // TODO: trow error if type of handler is not a function
+	      // TODO: throw error if type of handler is not a function
 	      this.eventListeners[eventName] = handler;
 	    }
 
@@ -301,7 +300,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @return {void}           
 	     */
 	  }, {
-	    key: "off",
+	    key: 'off',
 	    value: function off(eventName) {
 	      //TODO: Warn if there's not eventName attached
 	      delete this.eventListeners[eventName];
@@ -323,9 +322,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var Lame = __webpack_require__(8);
-	var Promise = __webpack_require__(6).Promise;
-	var extend = __webpack_require__(10);
+	var Lame = __webpack_require__(7);
+	var Promise = __webpack_require__(5).Promise;
+	var extend = __webpack_require__(8);
 
 	var defaultEncodeOptions = {
 	  channels: 1,
@@ -462,7 +461,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	var _utils = __webpack_require__(7);
+	var _utils = __webpack_require__(6);
 
 	var eventNames = ['loadedmetadata', 'timeupdate', 'play', 'pause', 'ended'];
 
@@ -590,7 +589,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	'use strict';
 
-	var RSVP = __webpack_require__(6);
+	var RSVP = __webpack_require__(5);
 
 	module.exports = (function () {
 	  function setup() {
@@ -609,627 +608,16 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/*
-	 *  Copyright (c) 2014 The WebRTC project authors. All Rights Reserved.
-	 *
-	 *  Use of this source code is governed by a BSD-style license
-	 *  that can be found in the LICENSE file in the root of the source
-	 *  tree.
-	 */
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	/* More information about these options at jshint.com/docs/options */
-	/* jshint browser: true, camelcase: true, curly: true, devel: true,
-	   eqeqeq: true, forin: false, globalstrict: true, node: true,
-	   quotmark: single, undef: true, unused: strict */
-	/* global mozRTCIceCandidate, mozRTCPeerConnection, Promise,
-	mozRTCSessionDescription, webkitRTCPeerConnection, MediaStreamTrack */
-	/* exported trace,requestUserMedia */
+	// Last time updated: 2016-02-25 8:42:56 AM UTC
 
-	'use strict';
-
-	var getUserMedia = null;
-	var attachMediaStream = null;
-	var reattachMediaStream = null;
-	var webrtcDetectedBrowser = null;
-	var webrtcDetectedVersion = null;
-	var webrtcMinimumVersion = null;
-	var webrtcUtils = {
-	  log: function() {
-	    // suppress console.log output when being included as a module.
-	    if (true) {
-	      return;
-	    }
-	    console.log.apply(console, arguments);
-	  },
-	  extractVersion: function(uastring, expr, pos) {
-	    var match = uastring.match(expr);
-	    return match && match.length >= pos && parseInt(match[pos]);
-	  }
-	};
-
-	function trace(text) {
-	  // This function is used for logging.
-	  if (text[text.length - 1] === '\n') {
-	    text = text.substring(0, text.length - 1);
-	  }
-	  if (window.performance) {
-	    var now = (window.performance.now() / 1000).toFixed(3);
-	    webrtcUtils.log(now + ': ' + text);
-	  } else {
-	    webrtcUtils.log(text);
-	  }
-	}
-
-	if (typeof window === 'object') {
-	  if (window.HTMLMediaElement &&
-	    !('srcObject' in window.HTMLMediaElement.prototype)) {
-	    // Shim the srcObject property, once, when HTMLMediaElement is found.
-	    Object.defineProperty(window.HTMLMediaElement.prototype, 'srcObject', {
-	      get: function() {
-	        // If prefixed srcObject property exists, return it.
-	        // Otherwise use the shimmed property, _srcObject
-	        return 'mozSrcObject' in this ? this.mozSrcObject : this._srcObject;
-	      },
-	      set: function(stream) {
-	        if ('mozSrcObject' in this) {
-	          this.mozSrcObject = stream;
-	        } else {
-	          // Use _srcObject as a private property for this shim
-	          this._srcObject = stream;
-	          // TODO: revokeObjectUrl(this.src) when !stream to release resources?
-	          this.src = URL.createObjectURL(stream);
-	        }
-	      }
-	    });
-	  }
-	  // Proxy existing globals
-	  getUserMedia = window.navigator && window.navigator.getUserMedia;
-	}
-
-	// Attach a media stream to an element.
-	attachMediaStream = function(element, stream) {
-	  element.srcObject = stream;
-	};
-
-	reattachMediaStream = function(to, from) {
-	  to.srcObject = from.srcObject;
-	};
-
-	if (typeof window === 'undefined' || !window.navigator) {
-	  webrtcUtils.log('This does not appear to be a browser');
-	  webrtcDetectedBrowser = 'not a browser';
-	} else if (navigator.mozGetUserMedia && window.mozRTCPeerConnection) {
-	  webrtcUtils.log('This appears to be Firefox');
-
-	  webrtcDetectedBrowser = 'firefox';
-
-	  // the detected firefox version.
-	  webrtcDetectedVersion = webrtcUtils.extractVersion(navigator.userAgent,
-	      /Firefox\/([0-9]+)\./, 1);
-
-	  // the minimum firefox version still supported by adapter.
-	  webrtcMinimumVersion = 31;
-
-	  // The RTCPeerConnection object.
-	  window.RTCPeerConnection = function(pcConfig, pcConstraints) {
-	    if (webrtcDetectedVersion < 38) {
-	      // .urls is not supported in FF < 38.
-	      // create RTCIceServers with a single url.
-	      if (pcConfig && pcConfig.iceServers) {
-	        var newIceServers = [];
-	        for (var i = 0; i < pcConfig.iceServers.length; i++) {
-	          var server = pcConfig.iceServers[i];
-	          if (server.hasOwnProperty('urls')) {
-	            for (var j = 0; j < server.urls.length; j++) {
-	              var newServer = {
-	                url: server.urls[j]
-	              };
-	              if (server.urls[j].indexOf('turn') === 0) {
-	                newServer.username = server.username;
-	                newServer.credential = server.credential;
-	              }
-	              newIceServers.push(newServer);
-	            }
-	          } else {
-	            newIceServers.push(pcConfig.iceServers[i]);
-	          }
-	        }
-	        pcConfig.iceServers = newIceServers;
-	      }
-	    }
-	    return new mozRTCPeerConnection(pcConfig, pcConstraints); // jscs:ignore requireCapitalizedConstructors
-	  };
-
-	  // The RTCSessionDescription object.
-	  if (!window.RTCSessionDescription) {
-	    window.RTCSessionDescription = mozRTCSessionDescription;
-	  }
-
-	  // The RTCIceCandidate object.
-	  if (!window.RTCIceCandidate) {
-	    window.RTCIceCandidate = mozRTCIceCandidate;
-	  }
-
-	  // getUserMedia constraints shim.
-	  getUserMedia = function(constraints, onSuccess, onError) {
-	    var constraintsToFF37 = function(c) {
-	      if (typeof c !== 'object' || c.require) {
-	        return c;
-	      }
-	      var require = [];
-	      Object.keys(c).forEach(function(key) {
-	        if (key === 'require' || key === 'advanced' || key === 'mediaSource') {
-	          return;
-	        }
-	        var r = c[key] = (typeof c[key] === 'object') ?
-	            c[key] : {ideal: c[key]};
-	        if (r.min !== undefined ||
-	            r.max !== undefined || r.exact !== undefined) {
-	          require.push(key);
-	        }
-	        if (r.exact !== undefined) {
-	          if (typeof r.exact === 'number') {
-	            r.min = r.max = r.exact;
-	          } else {
-	            c[key] = r.exact;
-	          }
-	          delete r.exact;
-	        }
-	        if (r.ideal !== undefined) {
-	          c.advanced = c.advanced || [];
-	          var oc = {};
-	          if (typeof r.ideal === 'number') {
-	            oc[key] = {min: r.ideal, max: r.ideal};
-	          } else {
-	            oc[key] = r.ideal;
-	          }
-	          c.advanced.push(oc);
-	          delete r.ideal;
-	          if (!Object.keys(r).length) {
-	            delete c[key];
-	          }
-	        }
-	      });
-	      if (require.length) {
-	        c.require = require;
-	      }
-	      return c;
-	    };
-	    if (webrtcDetectedVersion < 38) {
-	      webrtcUtils.log('spec: ' + JSON.stringify(constraints));
-	      if (constraints.audio) {
-	        constraints.audio = constraintsToFF37(constraints.audio);
-	      }
-	      if (constraints.video) {
-	        constraints.video = constraintsToFF37(constraints.video);
-	      }
-	      webrtcUtils.log('ff37: ' + JSON.stringify(constraints));
-	    }
-	    return navigator.mozGetUserMedia(constraints, onSuccess, onError);
-	  };
-
-	  navigator.getUserMedia = getUserMedia;
-
-	  // Shim for mediaDevices on older versions.
-	  if (!navigator.mediaDevices) {
-	    navigator.mediaDevices = {getUserMedia: requestUserMedia,
-	      addEventListener: function() { },
-	      removeEventListener: function() { }
-	    };
-	  }
-	  navigator.mediaDevices.enumerateDevices =
-	      navigator.mediaDevices.enumerateDevices || function() {
-	    return new Promise(function(resolve) {
-	      var infos = [
-	        {kind: 'audioinput', deviceId: 'default', label: '', groupId: ''},
-	        {kind: 'videoinput', deviceId: 'default', label: '', groupId: ''}
-	      ];
-	      resolve(infos);
-	    });
-	  };
-
-	  if (webrtcDetectedVersion < 41) {
-	    // Work around http://bugzil.la/1169665
-	    var orgEnumerateDevices =
-	        navigator.mediaDevices.enumerateDevices.bind(navigator.mediaDevices);
-	    navigator.mediaDevices.enumerateDevices = function() {
-	      return orgEnumerateDevices().then(undefined, function(e) {
-	        if (e.name === 'NotFoundError') {
-	          return [];
-	        }
-	        throw e;
-	      });
-	    };
-	  }
-	} else if (navigator.webkitGetUserMedia && window.webkitRTCPeerConnection) {
-	  webrtcUtils.log('This appears to be Chrome');
-
-	  webrtcDetectedBrowser = 'chrome';
-
-	  // the detected chrome version.
-	  webrtcDetectedVersion = webrtcUtils.extractVersion(navigator.userAgent,
-	      /Chrom(e|ium)\/([0-9]+)\./, 2);
-
-	  // the minimum chrome version still supported by adapter.
-	  webrtcMinimumVersion = 38;
-
-	  // The RTCPeerConnection object.
-	  window.RTCPeerConnection = function(pcConfig, pcConstraints) {
-	    // Translate iceTransportPolicy to iceTransports,
-	    // see https://code.google.com/p/webrtc/issues/detail?id=4869
-	    if (pcConfig && pcConfig.iceTransportPolicy) {
-	      pcConfig.iceTransports = pcConfig.iceTransportPolicy;
-	    }
-
-	    var pc = new webkitRTCPeerConnection(pcConfig, pcConstraints); // jscs:ignore requireCapitalizedConstructors
-	    var origGetStats = pc.getStats.bind(pc);
-	    pc.getStats = function(selector, successCallback, errorCallback) { // jshint ignore: line
-	      var self = this;
-	      var args = arguments;
-
-	      // If selector is a function then we are in the old style stats so just
-	      // pass back the original getStats format to avoid breaking old users.
-	      if (arguments.length > 0 && typeof selector === 'function') {
-	        return origGetStats(selector, successCallback);
-	      }
-
-	      var fixChromeStats = function(response) {
-	        var standardReport = {};
-	        var reports = response.result();
-	        reports.forEach(function(report) {
-	          var standardStats = {
-	            id: report.id,
-	            timestamp: report.timestamp,
-	            type: report.type
-	          };
-	          report.names().forEach(function(name) {
-	            standardStats[name] = report.stat(name);
-	          });
-	          standardReport[standardStats.id] = standardStats;
-	        });
-
-	        return standardReport;
-	      };
-
-	      if (arguments.length >= 2) {
-	        var successCallbackWrapper = function(response) {
-	          args[1](fixChromeStats(response));
-	        };
-
-	        return origGetStats.apply(this, [successCallbackWrapper, arguments[0]]);
-	      }
-
-	      // promise-support
-	      return new Promise(function(resolve, reject) {
-	        if (args.length === 1 && selector === null) {
-	          origGetStats.apply(self, [
-	              function(response) {
-	                resolve.apply(null, [fixChromeStats(response)]);
-	              }, reject]);
-	        } else {
-	          origGetStats.apply(self, [resolve, reject]);
-	        }
-	      });
-	    };
-
-	    return pc;
-	  };
-
-	  // add promise support
-	  ['createOffer', 'createAnswer'].forEach(function(method) {
-	    var nativeMethod = webkitRTCPeerConnection.prototype[method];
-	    webkitRTCPeerConnection.prototype[method] = function() {
-	      var self = this;
-	      if (arguments.length < 1 || (arguments.length === 1 &&
-	          typeof(arguments[0]) === 'object')) {
-	        var opts = arguments.length === 1 ? arguments[0] : undefined;
-	        return new Promise(function(resolve, reject) {
-	          nativeMethod.apply(self, [resolve, reject, opts]);
-	        });
-	      } else {
-	        return nativeMethod.apply(this, arguments);
-	      }
-	    };
-	  });
-
-	  ['setLocalDescription', 'setRemoteDescription',
-	      'addIceCandidate'].forEach(function(method) {
-	    var nativeMethod = webkitRTCPeerConnection.prototype[method];
-	    webkitRTCPeerConnection.prototype[method] = function() {
-	      var args = arguments;
-	      var self = this;
-	      return new Promise(function(resolve, reject) {
-	        nativeMethod.apply(self, [args[0],
-	            function() {
-	              resolve();
-	              if (args.length >= 2) {
-	                args[1].apply(null, []);
-	              }
-	            },
-	            function(err) {
-	              reject(err);
-	              if (args.length >= 3) {
-	                args[2].apply(null, [err]);
-	              }
-	            }]
-	          );
-	      });
-	    };
-	  });
-
-	  // getUserMedia constraints shim.
-	  var constraintsToChrome = function(c) {
-	    if (typeof c !== 'object' || c.mandatory || c.optional) {
-	      return c;
-	    }
-	    var cc = {};
-	    Object.keys(c).forEach(function(key) {
-	      if (key === 'require' || key === 'advanced' || key === 'mediaSource') {
-	        return;
-	      }
-	      var r = (typeof c[key] === 'object') ? c[key] : {ideal: c[key]};
-	      if (r.exact !== undefined && typeof r.exact === 'number') {
-	        r.min = r.max = r.exact;
-	      }
-	      var oldname = function(prefix, name) {
-	        if (prefix) {
-	          return prefix + name.charAt(0).toUpperCase() + name.slice(1);
-	        }
-	        return (name === 'deviceId') ? 'sourceId' : name;
-	      };
-	      if (r.ideal !== undefined) {
-	        cc.optional = cc.optional || [];
-	        var oc = {};
-	        if (typeof r.ideal === 'number') {
-	          oc[oldname('min', key)] = r.ideal;
-	          cc.optional.push(oc);
-	          oc = {};
-	          oc[oldname('max', key)] = r.ideal;
-	          cc.optional.push(oc);
-	        } else {
-	          oc[oldname('', key)] = r.ideal;
-	          cc.optional.push(oc);
-	        }
-	      }
-	      if (r.exact !== undefined && typeof r.exact !== 'number') {
-	        cc.mandatory = cc.mandatory || {};
-	        cc.mandatory[oldname('', key)] = r.exact;
-	      } else {
-	        ['min', 'max'].forEach(function(mix) {
-	          if (r[mix] !== undefined) {
-	            cc.mandatory = cc.mandatory || {};
-	            cc.mandatory[oldname(mix, key)] = r[mix];
-	          }
-	        });
-	      }
-	    });
-	    if (c.advanced) {
-	      cc.optional = (cc.optional || []).concat(c.advanced);
-	    }
-	    return cc;
-	  };
-
-	  getUserMedia = function(constraints, onSuccess, onError) {
-	    if (constraints.audio) {
-	      constraints.audio = constraintsToChrome(constraints.audio);
-	    }
-	    if (constraints.video) {
-	      constraints.video = constraintsToChrome(constraints.video);
-	    }
-	    webrtcUtils.log('chrome: ' + JSON.stringify(constraints));
-	    return navigator.webkitGetUserMedia(constraints, onSuccess, onError);
-	  };
-	  navigator.getUserMedia = getUserMedia;
-
-	  if (!navigator.mediaDevices) {
-	    navigator.mediaDevices = {getUserMedia: requestUserMedia,
-	                              enumerateDevices: function() {
-	      return new Promise(function(resolve) {
-	        var kinds = {audio: 'audioinput', video: 'videoinput'};
-	        return MediaStreamTrack.getSources(function(devices) {
-	          resolve(devices.map(function(device) {
-	            return {label: device.label,
-	                    kind: kinds[device.kind],
-	                    deviceId: device.id,
-	                    groupId: ''};
-	          }));
-	        });
-	      });
-	    }};
-	  }
-
-	  // A shim for getUserMedia method on the mediaDevices object.
-	  // TODO(KaptenJansson) remove once implemented in Chrome stable.
-	  if (!navigator.mediaDevices.getUserMedia) {
-	    navigator.mediaDevices.getUserMedia = function(constraints) {
-	      return requestUserMedia(constraints);
-	    };
-	  } else {
-	    // Even though Chrome 45 has navigator.mediaDevices and a getUserMedia
-	    // function which returns a Promise, it does not accept spec-style
-	    // constraints.
-	    var origGetUserMedia = navigator.mediaDevices.getUserMedia.
-	        bind(navigator.mediaDevices);
-	    navigator.mediaDevices.getUserMedia = function(c) {
-	      webrtcUtils.log('spec:   ' + JSON.stringify(c)); // whitespace for alignment
-	      c.audio = constraintsToChrome(c.audio);
-	      c.video = constraintsToChrome(c.video);
-	      webrtcUtils.log('chrome: ' + JSON.stringify(c));
-	      return origGetUserMedia(c);
-	    };
-	  }
-
-	  // Dummy devicechange event methods.
-	  // TODO(KaptenJansson) remove once implemented in Chrome stable.
-	  if (typeof navigator.mediaDevices.addEventListener === 'undefined') {
-	    navigator.mediaDevices.addEventListener = function() {
-	      webrtcUtils.log('Dummy mediaDevices.addEventListener called.');
-	    };
-	  }
-	  if (typeof navigator.mediaDevices.removeEventListener === 'undefined') {
-	    navigator.mediaDevices.removeEventListener = function() {
-	      webrtcUtils.log('Dummy mediaDevices.removeEventListener called.');
-	    };
-	  }
-
-	  // Attach a media stream to an element.
-	  attachMediaStream = function(element, stream) {
-	    if (webrtcDetectedVersion >= 43) {
-	      element.srcObject = stream;
-	    } else if (typeof element.src !== 'undefined') {
-	      element.src = URL.createObjectURL(stream);
-	    } else {
-	      webrtcUtils.log('Error attaching stream to element.');
-	    }
-	  };
-	  reattachMediaStream = function(to, from) {
-	    if (webrtcDetectedVersion >= 43) {
-	      to.srcObject = from.srcObject;
-	    } else {
-	      to.src = from.src;
-	    }
-	  };
-
-	} else if (navigator.mediaDevices && navigator.userAgent.match(
-	    /Edge\/(\d+).(\d+)$/)) {
-	  webrtcUtils.log('This appears to be Edge');
-	  webrtcDetectedBrowser = 'edge';
-
-	  webrtcDetectedVersion = webrtcUtils.extractVersion(navigator.userAgent,
-	      /Edge\/(\d+).(\d+)$/, 2);
-
-	  // the minimum version still supported by adapter.
-	  webrtcMinimumVersion = 12;
-	} else {
-	  webrtcUtils.log('Browser does not appear to be WebRTC-capable');
-	}
-
-	// Returns the result of getUserMedia as a Promise.
-	function requestUserMedia(constraints) {
-	  return new Promise(function(resolve, reject) {
-	    getUserMedia(constraints, resolve, reject);
-	  });
-	}
-
-	var webrtcTesting = {};
-	try {
-	  Object.defineProperty(webrtcTesting, 'version', {
-	    set: function(version) {
-	      webrtcDetectedVersion = version;
-	    }
-	  });
-	} catch (e) {}
-
-	if (true) {
-	  var RTCPeerConnection;
-	  if (typeof window !== 'undefined') {
-	    RTCPeerConnection = window.RTCPeerConnection;
-	  }
-	  module.exports = {
-	    RTCPeerConnection: RTCPeerConnection,
-	    getUserMedia: getUserMedia,
-	    attachMediaStream: attachMediaStream,
-	    reattachMediaStream: reattachMediaStream,
-	    webrtcDetectedBrowser: webrtcDetectedBrowser,
-	    webrtcDetectedVersion: webrtcDetectedVersion,
-	    webrtcMinimumVersion: webrtcMinimumVersion,
-	    webrtcTesting: webrtcTesting,
-	    webrtcUtils: webrtcUtils
-	    //requestUserMedia: not exposed on purpose.
-	    //trace: not exposed on purpose.
-	  };
-	} else if ((typeof require === 'function') && (typeof define === 'function')) {
-	  // Expose objects and functions when RequireJS is doing the loading.
-	  define([], function() {
-	    return {
-	      RTCPeerConnection: window.RTCPeerConnection,
-	      getUserMedia: getUserMedia,
-	      attachMediaStream: attachMediaStream,
-	      reattachMediaStream: reattachMediaStream,
-	      webrtcDetectedBrowser: webrtcDetectedBrowser,
-	      webrtcDetectedVersion: webrtcDetectedVersion,
-	      webrtcMinimumVersion: webrtcMinimumVersion,
-	      webrtcTesting: webrtcTesting,
-	      webrtcUtils: webrtcUtils
-	      //requestUserMedia: not exposed on purpose.
-	      //trace: not exposed on purpose.
-	    };
-	  });
-	}
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;// Last time updated at Tuesday, October 27th, 2015, 4:33:33 PM 
-
-	// links:
 	// Open-Sourced: https://github.com/muaz-khan/RecordRTC
-	// https://cdn.WebRTC-Experiment.com/RecordRTC.js
-	// https://www.WebRTC-Experiment.com/RecordRTC.js
-	// npm install recordrtc
-	// http://recordrtc.org/
 
-	// updates?
-	/*
-	-. Added support for MediaRecorder API in Chrome. Currently requires: RecordRTC(stream, {recorderType: MediaStreamRecorder})
-	-. mimeType, bitsPerSecond, audioBitsPerSecond, videoBitsPerSecond added.
-	-. CanvasRecorder.js updated to support Firefox. (experimental)
-	-. Now you can reuse single RecordRTC object i.e. stop/start/stop/start/ and so on.
-	-. GifRecorder.js can now record HTMLCanvasElement|CanvasRenderingContext2D as well.
-	-. added: frameInterval:20 for WhammyRecorder.js
-	-. chrome issue  audio plus 720p-video recording can be fixed by setting bufferSize:16384
-	-. fixed Firefox save-as dialog i.e. recordRTC.save('filen-name')
-	-. "indexedDB" bug fixed for Firefox.
-	-. numberOfAudioChannels:1 can be passed to reduce WAV size in Chrome.
-	-. StereoRecorder.js is removed. It was redundant. Now RecordRTC is directly using: StereoAudioRecorder.js
-	-. mergeProps is removed. It was redundant.
-	-. reformatProps is removed. Now plz pass exact frameRate/sampleRate instead of frame-rate/sample-rate
-	-. Firefox supports remote-audio-recording since v28 - RecordRTC(remoteStream, { recorderType: StereoAudioRecorder });
-	-. added 3 methods: initRecorder, setRecordingDuration and clearRecordedData
-	-. Microsoft Edge support added (only-audio-yet).
-	-. You can pass "recorderType" - RecordRTC(stream, { recorderType: StereoAudioRecorder });
-	-. If MediaStream is suddenly stopped in Firefox.
-	-. Added "disableLogs"         - RecordRTC(stream, { disableLogs: true });
-	-. You can pass "bufferSize:0" - RecordRTC(stream, { bufferSize: 0 });
-	-. You can set "leftChannel"   - RecordRTC(stream, { leftChannel: true });
-	-. Added functionality for analyse black frames and cut them - pull#293
-	-. if you're recording GIF, you must link: https://cdn.webrtc-experiment.com/gif-recorder.js
-	-. You can set "frameInterval" for video - RecordRTC(stream, { type: 'video', frameInterval: 100 });
-	*/
-
-	//------------------------------------
-
-	// Browsers Support::
-	// Chrome (all versions) [ audio/video separately ]
-	// Firefox ( >= 29 ) [ audio/video in single webm/mp4 container or only audio in ogg ]
-	// Opera (all versions) [ same as chrome ]
-	// Android (Chrome) [ only video ]
-	// Android (Opera) [ only video ]
-	// Android (Firefox) [ only video ]
-	// Microsoft Edge (Only Audio & Gif)
-
-	//------------------------------------
+	//--------------------------------------------------
 	// Muaz Khan     - www.MuazKhan.com
 	// MIT License   - www.WebRTC-Experiment.com/licence
-	//------------------------------------
-	// Note: RecordRTC.js is using 3 other libraries; you need to accept their licences as well.
-	//------------------------------------
-	// 1. RecordRTC.js
-	// 2. MRecordRTC.js
-	// 3. Cross-Browser-Declarations.js
-	// 4. Storage.js
-	// 5. MediaStreamRecorder.js
-	// 6. StereoAudioRecorder.js
-	// 7. CanvasRecorder.js
-	// 8. WhammyRecorder.js
-	// 9. Whammy.js
-	// 10. DiskStorage.js
-	// 11. GifRecorder.js
-	//------------------------------------
-
-	'use strict';
+	//--------------------------------------------------
 
 	// ____________
 	// RecordRTC.js
@@ -1383,6 +771,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    }
 
+	    function readFile(_blob) {
+	        postMessage(new FileReaderSync().readAsDataURL(_blob));
+	    }
+
 	    function getDataURL(callback, _mediaRecorder) {
 	        if (!callback) {
 	            throw 'Pass a callback function over getDataURL.';
@@ -1401,10 +793,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        }
 
-	        if (typeof Worker !== 'undefined') {
-	            var webWorker = processInWebWorker(function readFile(_blob) {
-	                postMessage(new FileReaderSync().readAsDataURL(_blob));
-	            });
+	        if (typeof Worker !== 'undefined' && !navigator.mozGetUserMedia) {
+	            var webWorker = processInWebWorker(readFile);
 
 	            webWorker.onmessage = function(event) {
 	                callback(event.data);
@@ -1903,7 +1293,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 
 	        if (!config.bitsPerSecond) {
-	            config.bitsPerSecond = 128000;
+	            // config.bitsPerSecond = 128000;
 	        }
 	    }
 
@@ -1969,17 +1359,18 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    // todo: enable below block when MediaRecorder in Chrome gets out of flags; and it also supports audio recording.
-	    if (false) {
+	    if (isMediaRecorderCompatible() && isChrome && recorder !== CanvasRecorder && recorder !== GifRecorder && typeof MediaRecorder !== 'undefined' && 'requestData' in MediaRecorder.prototype) {
 	        if (mediaStream.getVideoTracks().length) {
 	            recorder = MediaStreamRecorder;
-	            if (!config.disableLogs) {
-	                console.debug('Using MediaRecorder API in chrome!');
-	            }
 	        }
 	    }
 
 	    if (config.recorderType) {
 	        recorder = config.recorderType;
+	    }
+
+	    if (!config.disableLogs && isChrome && recorder === MediaStreamRecorder) {
+	        console.debug('Using MediaRecorder API in chrome!');
 	    }
 
 	    return recorder;
@@ -2032,9 +1423,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * @example
 	     * var recorder = new MRecordRTC();
 	     * recorder.mediaType = {
-	     *     audio: true,
-	     *     video: true,
-	     *     gif  : true
+	     *     audio: true, // TRUE or StereoAudioRecorder or MediaStreamRecorder
+	     *     video: true, // TRUE or WhammyRecorder or MediaStreamRecorder
+	     *     gif  : true  // TRUE or GifRecorder
 	     * };
 	     */
 	    this.mediaType = {
@@ -2050,34 +1441,69 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * recorder.startRecording();
 	     */
 	    this.startRecording = function() {
-	        if (!isChrome && mediaStream && mediaStream.getAudioTracks && mediaStream.getAudioTracks().length && mediaStream.getVideoTracks().length) {
+	        var mediaType = this.mediaType;
+	        var recorderType;
+
+	        if (typeof mediaType.audio !== 'function' && isMediaRecorderCompatible() && mediaStream && mediaStream.getAudioTracks && mediaStream.getAudioTracks().length && mediaStream.getVideoTracks().length) {
 	            // Firefox is supporting both audio/video in single blob
 	            this.mediaType.audio = false;
 	        }
 
-	        if (this.mediaType.audio) {
+	        if (!!mediaType.audio) {
+	            if (typeof mediaType.audio === 'function') {
+	                recorderType = mediaType.audio;
+	            }
 	            this.audioRecorder = new RecordRTC(mediaStream, {
 	                type: 'audio',
 	                bufferSize: this.bufferSize,
-	                sampleRate: this.sampleRate
+	                sampleRate: this.sampleRate,
+	                numberOfAudioChannels: this.numberOfAudioChannels || 2,
+	                disableLogs: this.disableLogs,
+	                recorderType: recorderType
 	            });
-	            this.audioRecorder.startRecording();
+	            if (!mediaType.video) {
+	                this.audioRecorder.startRecording();
+	            }
 	        }
 
-	        if (this.mediaType.video) {
+	        if (!!mediaType.video) {
+	            if (typeof mediaType.video === 'function') {
+	                recorderType = mediaType.video;
+	            }
 	            this.videoRecorder = new RecordRTC(mediaStream, {
 	                type: 'video',
 	                video: this.video,
-	                canvas: this.canvas
+	                canvas: this.canvas,
+	                frameInterval: this.frameInterval || 10,
+	                disableLogs: this.disableLogs,
+	                recorderType: recorderType
 	            });
-	            this.videoRecorder.startRecording();
+	            if (!mediaType.audio) {
+	                this.videoRecorder.startRecording();
+	            }
 	        }
 
-	        if (this.mediaType.gif) {
+	        if (!!mediaType.audio && !!mediaType.video) {
+	            var self = this;
+	            self.videoRecorder.initRecorder(function() {
+	                self.audioRecorder.initRecorder(function() {
+	                    // Both recorders are ready to record things accurately
+	                    self.videoRecorder.startRecording();
+	                    self.audioRecorder.startRecording();
+	                });
+	            });
+	        }
+
+	        if (!!mediaType.gif) {
+	            if (typeof mediaType.gif === 'function') {
+	                recorderType = mediaType.gif;
+	            }
 	            this.gifRecorder = new RecordRTC(mediaStream, {
 	                type: 'gif',
 	                frameRate: this.frameRate || 200,
-	                quality: this.quality || 10
+	                quality: this.quality || 10,
+	                disableLogs: this.disableLogs,
+	                recorderType: recorderType
 	            });
 	            this.gifRecorder.startRecording();
 	        }
@@ -2378,6 +1804,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	/*global MediaStream:true */
 	if (typeof MediaStream !== 'undefined' && !('stop' in MediaStream.prototype)) {
 	    MediaStream.prototype.stop = function() {
+	        if (!this.getAudioTracks && !!this.getTracks) {
+	            this.getAudioTracks = function() {
+	                var array = [];
+	                this.getTracks.forEach(function(track) {
+	                    if (track.kind.toString().indexOf('audio') !== -1) {
+	                        array.push(track);
+	                    }
+	                });
+	                return array;
+	            };
+	        }
+
+	        if (!this.getVideoTracks && !!this.getTracks) {
+	            this.getVideoTracks = function() {
+	                var array = [];
+	                this.getTracks.forEach(function(track) {
+	                    if (track.kind.toString().indexOf('video') !== -1) {
+	                        array.push(track);
+	                    }
+	                });
+	                return array;
+	            };
+	        }
+
 	        this.getAudioTracks().forEach(function(track) {
 	            track.stop();
 	        });
@@ -2490,6 +1940,49 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Storage.AudioContext = webkitAudioContext;
 	}
 
+	function isMediaRecorderCompatible() {
+	    var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	    var isChrome = !!window.chrome && !isOpera;
+	    var isFirefox = typeof window.InstallTrigger !== 'undefined';
+
+	    if (isFirefox) {
+	        return true;
+	    }
+
+	    if (!isChrome) {
+	        return false;
+	    }
+
+	    var nVer = navigator.appVersion;
+	    var nAgt = navigator.userAgent;
+	    var fullVersion = '' + parseFloat(navigator.appVersion);
+	    var majorVersion = parseInt(navigator.appVersion, 10);
+	    var nameOffset, verOffset, ix;
+
+	    if (isChrome) {
+	        verOffset = nAgt.indexOf('Chrome');
+	        fullVersion = nAgt.substring(verOffset + 7);
+	    }
+
+	    // trim the fullVersion string at semicolon/space if present
+	    if ((ix = fullVersion.indexOf(';')) !== -1) {
+	        fullVersion = fullVersion.substring(0, ix);
+	    }
+
+	    if ((ix = fullVersion.indexOf(' ')) !== -1) {
+	        fullVersion = fullVersion.substring(0, ix);
+	    }
+
+	    majorVersion = parseInt('' + fullVersion, 10);
+
+	    if (isNaN(majorVersion)) {
+	        fullVersion = '' + parseFloat(navigator.appVersion);
+	        majorVersion = parseInt(navigator.appVersion, 10);
+	    }
+
+	    return majorVersion >= 49;
+	}
+
 	// ______________________
 	// MediaStreamRecorder.js
 
@@ -2517,9 +2010,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @example
 	 * var options = {
 	 *     mimeType: 'video/mp4', // audio/ogg or video/webm
-	 *     audioBitsPerSecond : 128000,
-	 *     videoBitsPerSecond : 2500000,
-	 *     bitsPerSecond: 2500000  // if this is provided, skip above two
+	 *     audioBitsPerSecond : 256 * 8 * 1024,
+	 *     videoBitsPerSecond : 256 * 8 * 1024,
+	 *     bitsPerSecond: 256 * 8 * 1024  // if this is provided, skip above two
 	 * }
 	 * var recorder = new MediaStreamRecorder(MediaStream, options);
 	 * recorder.record();
@@ -2535,15 +2028,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	function MediaStreamRecorder(mediaStream, config) {
+	    var self = this;
+
 	    config = config || {
-	        bitsPerSecond: 128000,
+	        // bitsPerSecond: 256 * 8 * 1024,
 	        mimeType: 'video/webm'
 	    };
 
 	    // if user chosen only audio option; and he tried to pass MediaStream with
 	    // both audio and video tracks;
 	    // using a dirty workaround to generate audio-only stream so that we can get audio/ogg output.
-	    if (!isChrome && config.type && config.type === 'audio') {
+	    if (!!navigator.mozGetUserMedia && config.type && config.type === 'audio') {
 	        if (mediaStream.getVideoTracks && mediaStream.getVideoTracks().length) {
 	            var context = new AudioContext();
 	            var mediaStreamSource = context.createMediaStreamSource(mediaStream);
@@ -2571,15 +2066,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.record = function() {
 	        var recorderHints = config;
 
-	        if (isChrome) {
-	            if (!recorderHints || typeof recorderHints !== 'string') {
-	                recorderHints = 'video/vp8';
-
-	                // chrome currently supports only video recording
-	                mediaStream = new MediaStream(mediaStream.getVideoTracks());
-	            }
-	        }
-
 	        if (!config.disableLogs) {
 	            console.log('Passing following config over MediaRecorder API.', recorderHints);
 	        }
@@ -2587,6 +2073,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (mediaRecorder) {
 	            // mandatory to make sure Firefox doesn't fails to record streams 3-4 times without reloading the page.
 	            mediaRecorder = null;
+	        }
+
+	        if (isChrome && !isMediaRecorderCompatible()) {
+	            // to support video-only recording on stable
+	            recorderHints = 'video/vp8';
 	        }
 
 	        // http://dxr.mozilla.org/mozilla-central/source/content/media/MediaRecorder.cpp
@@ -2609,17 +2100,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        // Dispatching OnDataAvailable Handler
 	        mediaRecorder.ondataavailable = function(e) {
-	            if (this.dontFireOnDataAvailableEvent) {
+	            if (self.dontFireOnDataAvailableEvent) {
 	                return;
 	            }
 
-	            if (isChrome && e.data && !('size' in e.data)) {
-	                e.data.size = e.data.length || e.data.byteLength || 0;
+	            if (!e.data || !e.data.size) {
+	                return;
 	            }
 
-	            if (e.data && e.data.size) {
-	                recordedBuffers.push(e.data);
-	            }
+	            recordedBuffers.push(e.data);
 	        };
 
 	        mediaRecorder.onerror = function(error) {
@@ -2671,6 +2160,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	    };
 
+	    // both "bufferToDataUrl" and "dataUrlToFile" are taken from "60devs.com"
+	    function bufferToDataUrl(buffer, callback) {
+	        var blob = new Blob(buffer, {
+	            type: 'video/webm'
+	        });
+
+	        var reader = new FileReader();
+	        reader.onload = function() {
+	            callback(reader.result);
+	        };
+	        reader.readAsDataURL(blob);
+	    }
+
+	    // returns file, that we can send to the server.
+	    function dataUrlToFile(dataUrl) {
+	        var binary = atob(dataUrl.split(',')[1]),
+	            data = [];
+
+	        for (var i = 0; i < binary.length; i++) {
+	            data.push(binary.charCodeAt(i));
+	        }
+
+	        var File = window.File || window.Blob;
+
+	        return new File([new Uint8Array(data)], 'recorded-video.webm', {
+	            type: 'video/webm'
+	        });
+	    }
+
 	    /**
 	     * This method stops recording MediaStream.
 	     * @param {function} callback - Callback function, that is used to pass recorded blob back to the callee.
@@ -2703,21 +2221,26 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    this.onRecordingFinished = function() {
-	        /**
-	         * @property {Blob} blob - Recorded frames in video/webm blob.
-	         * @memberof MediaStreamRecorder
-	         * @example
-	         * recorder.stop(function() {
-	         *     var blob = recorder.blob;
-	         * });
-	         */
-	        this.blob = new Blob(recordedBuffers, {
-	            type: config.mimeType || 'video/webm'
+	        var that = this;
+
+	        bufferToDataUrl(recordedBuffers, function(dataURL) {
+	            var file = dataUrlToFile(dataURL);
+
+	            /**
+	             * @property {Blob} blob - Recorded frames in video/webm blob.
+	             * @memberof MediaStreamRecorder
+	             * @example
+	             * recorder.stop(function() {
+	             *     var blob = recorder.blob;
+	             * });
+	             */
+	            that.blob = new Blob(recordedBuffers, {
+	                type: config.mimeType || 'video/webm'
+	            });
+
+	            that.recordingCallback();
+	            recordedBuffers = [];
 	        });
-
-	        this.recordingCallback();
-
-	        recordedBuffers = [];
 	    };
 
 	    /**
@@ -3008,7 +2531,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            view.setUint32(24, sampleRate, true);
 
 	            // byte rate (sample rate * block align)
-	            view.setUint32(28, sampleRate * 4, true);
+	            view.setUint32(28, sampleRate * 2, true);
 
 	            // block align (channel count * bytes per sample) 
 	            view.setUint16(32, numberOfAudioChannels * 2, true);
@@ -3358,11 +2881,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 
 	function CanvasRecorder(htmlElement, config) {
-	    if (typeof html2canvas === 'undefined') {
+	    if (typeof html2canvas === 'undefined' && htmlElement.nodeName.toLowerCase() !== 'canvas') {
 	        throw 'Please link: //cdn.webrtc-experiment.com/screenshot.js';
 	    }
 
 	    config = config || {};
+	    if (!config.frameInterval) {
+	        config.frameInterval = 10;
+	    }
 
 	    // via DetectRTC.js
 	    var isCanvasSupportsStreamCapturing = false;
@@ -3371,6 +2897,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	            isCanvasSupportsStreamCapturing = true;
 	        }
 	    });
+
+	    if (!!window.webkitRTCPeerConnection || !!window.webkitGetUserMedia) {
+	        isCanvasSupportsStreamCapturing = false;
+	    }
 
 	    var globalCanvas, globalContext, mediaStreamRecorder;
 
@@ -3404,6 +2934,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * recorder.record();
 	     */
 	    this.record = function() {
+	        isRecording = true;
+
 	        if (isCanvasSupportsStreamCapturing) {
 	            // CanvasCaptureMediaStream
 	            var canvasMediaStream;
@@ -3415,24 +2947,55 @@ return /******/ (function(modules) { // webpackBootstrap
 	                canvasMediaStream = globalCanvas.captureStream(25);
 	            }
 
+	            try {
+	                var mdStream = new MediaStream();
+	                mdStream.addTrack(canvasMediaStream.getVideoTracks()[0]);
+	                canvasMediaStream = mdStream;
+	            } catch (e) {}
+
 	            if (!canvasMediaStream) {
 	                throw 'captureStream API are NOT available.';
 	            }
 
-	            // Note: Sep, 2015 status is that, MediaRecorder API can't record CanvasCaptureMediaStream object.
+	            // Note: Jan 18, 2016 status is that, 
+	            // Firefox MediaRecorder API can't record CanvasCaptureMediaStream object.
 	            mediaStreamRecorder = new MediaStreamRecorder(canvasMediaStream, {
 	                mimeType: 'video/webm'
 	            });
 	            mediaStreamRecorder.record();
+	        } else {
+	            whammy.frames = [];
+	            lastTime = new Date().getTime();
+	            drawCanvasFrame();
 	        }
-
-	        isRecording = true;
-	        whammy.frames = [];
-	        drawCanvasFrame();
 
 	        if (config.initCallback) {
 	            config.initCallback();
 	        }
+	    };
+
+	    this.getWebPImages = function(callback) {
+	        if (htmlElement.nodeName.toLowerCase() !== 'canvas') {
+	            callback();
+	            return;
+	        }
+
+	        var framesLength = whammy.frames.length;
+	        whammy.frames.forEach(function(frame, idx) {
+	            var framesRemaining = framesLength - idx;
+	            document.title = framesRemaining + '/' + framesLength + ' frames remaining';
+
+	            if (config.onEncodingCallback) {
+	                config.onEncodingCallback(framesRemaining, framesLength);
+	            }
+
+	            var webp = frame.image.toDataURL('image/webp', 1);
+	            whammy.frames[idx].image = webp;
+	        });
+
+	        document.title = 'Generating WebM';
+
+	        callback();
 	    };
 
 	    /**
@@ -3448,6 +3011,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.stop = function(callback) {
 	        isRecording = false;
 
+	        var that = this;
+
 	        if (isCanvasSupportsStreamCapturing && mediaStreamRecorder) {
 	            var slef = this;
 	            mediaStreamRecorder.stop(function() {
@@ -3461,30 +3026,32 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        }
 
-	        var that = this;
+	        this.getWebPImages(function() {
+	            /**
+	             * @property {Blob} blob - Recorded frames in video/webm blob.
+	             * @memberof CanvasRecorder
+	             * @example
+	             * recorder.stop(function() {
+	             *     var blob = recorder.blob;
+	             * });
+	             */
+	            whammy.compile(function(blob) {
+	                document.title = 'Recording finished!';
 
-	        /**
-	         * @property {Blob} blob - Recorded frames in video/webm blob.
-	         * @memberof CanvasRecorder
-	         * @example
-	         * recorder.stop(function() {
-	         *     var blob = recorder.blob;
-	         * });
-	         */
-	        whammy.compile(function(blob) {
-	            that.blob = blob;
+	                that.blob = blob;
 
-	            if (that.blob.forEach) {
-	                that.blob = new Blob([], {
-	                    type: 'video/webm'
-	                });
-	            }
+	                if (that.blob.forEach) {
+	                    that.blob = new Blob([], {
+	                        type: 'video/webm'
+	                    });
+	                }
 
-	            if (callback) {
-	                callback(that.blob);
-	            }
+	                if (callback) {
+	                    callback(that.blob);
+	                }
 
-	            whammy.frames = [];
+	                whammy.frames = [];
+	            });
 	        });
 	    };
 
@@ -3524,40 +3091,62 @@ return /******/ (function(modules) { // webpackBootstrap
 	        whammy.frames = [];
 	    };
 
+	    function cloneCanvas() {
+	        //create a new canvas
+	        var newCanvas = document.createElement('canvas');
+	        var context = newCanvas.getContext('2d');
+
+	        //set dimensions
+	        newCanvas.width = htmlElement.width;
+	        newCanvas.height = htmlElement.height;
+
+	        //apply the old canvas to the new one
+	        context.drawImage(htmlElement, 0, 0);
+
+	        //return the new canvas
+	        return newCanvas;
+	    }
+
 	    function drawCanvasFrame() {
 	        if (isPausedRecording) {
 	            lastTime = new Date().getTime();
-	            return setTimeout(drawCanvasFrame, 100);
+	            return setTimeout(drawCanvasFrame, 500);
+	        }
+
+	        if (htmlElement.nodeName.toLowerCase() === 'canvas') {
+	            var duration = new Date().getTime() - lastTime;
+	            // via #206, by Jack i.e. @Seymourr
+	            lastTime = new Date().getTime();
+
+	            whammy.frames.push({
+	                image: cloneCanvas(),
+	                duration: duration
+	            });
+
+	            if (isRecording) {
+	                setTimeout(drawCanvasFrame, config.frameInterval);
+	            }
+	            return;
 	        }
 
 	        html2canvas(htmlElement, {
+	            grabMouse: typeof config.showMousePointer === 'undefined' || config.showMousePointer,
 	            onrendered: function(canvas) {
-	                if (isCanvasSupportsStreamCapturing) {
-	                    var image = document.createElement('img');
-	                    image.src = canvas.toDataURL('image/png');
-	                    image.onload = function() {
-	                        globalContext.drawImage(image, 0, 0, image.clientWidth, image.clientHeight);
-	                        (document.body || document.documentElement).removeChild(image);
-	                    };
-	                    image.style.opacity = 0;
-	                    (document.body || document.documentElement).appendChild(image);
-	                } else {
-	                    var duration = new Date().getTime() - lastTime;
-	                    if (!duration) {
-	                        return drawCanvasFrame();
-	                    }
-
-	                    // via #206, by Jack i.e. @Seymourr
-	                    lastTime = new Date().getTime();
-
-	                    whammy.frames.push({
-	                        duration: duration,
-	                        image: canvas.toDataURL('image/webp')
-	                    });
+	                var duration = new Date().getTime() - lastTime;
+	                if (!duration) {
+	                    return setTimeout(drawCanvasFrame, config.frameInterval);
 	                }
 
+	                // via #206, by Jack i.e. @Seymourr
+	                lastTime = new Date().getTime();
+
+	                whammy.frames.push({
+	                    image: canvas.toDataURL('image/webp', 1),
+	                    duration: duration
+	                });
+
 	                if (isRecording) {
-	                    setTimeout(drawCanvasFrame, 0);
+	                    setTimeout(drawCanvasFrame, config.frameInterval);
 	                }
 	            }
 	        });
@@ -4315,10 +3904,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return webp;
 	        }));
 
-	        if (!!navigator.mozGetUserMedia) {
-	            return webm;
-	        }
-
 	        postMessage(webm);
 	    }
 
@@ -4334,10 +3919,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	     * });
 	     */
 	    WhammyVideo.prototype.compile = function(callback) {
-	        if (!!navigator.mozGetUserMedia) {
-	            callback(whammyInWebWorker(this.frames));
-	            return;
-	        }
 	        var webWorker = processInWebWorker(whammyInWebWorker);
 
 	        webWorker.onmessage = function(event) {
@@ -4799,7 +4380,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var require;var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(process, global, module) {/*!
@@ -6390,7 +5971,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 
 	    /* global define:true module:true window: true */
-	    if ("function" === 'function' && __webpack_require__(12)['amd']) {
+	    if ("function" === 'function' && __webpack_require__(11)['amd']) {
 	      !(__WEBPACK_AMD_DEFINE_RESULT__ = function() { return lib$rsvp$umd$$RSVP; }.call(exports, __webpack_require__, exports, module), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof module !== 'undefined' && module['exports']) {
 	      module['exports'] = lib$rsvp$umd$$RSVP;
@@ -6400,10 +5981,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	}).call(this);
 
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(11), (function() { return this; }()), __webpack_require__(13)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10), (function() { return this; }()), __webpack_require__(12)(module)))
 
 /***/ },
-/* 7 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -6422,7 +6003,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 8 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer) {function lamejs() {
@@ -22016,16 +21597,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	//fs=require('fs');
 	//lamejs();
 	module.exports = lamejs;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14).Buffer))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13).Buffer))
 
 /***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* (ignored) */
-
-/***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -22117,7 +21692,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 11 */
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* (ignored) */
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// shim for using process in browser
@@ -22181,14 +21762,14 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 12 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function() { throw new Error("define cannot be used indirect"); };
 
 
 /***/ },
-/* 13 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	module.exports = function(module) {
@@ -22204,7 +21785,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 14 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(Buffer, global) {/*!
@@ -22215,9 +21796,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	 */
 	/* eslint-disable no-proto */
 
-	var base64 = __webpack_require__(17)
-	var ieee754 = __webpack_require__(15)
-	var isArray = __webpack_require__(16)
+	'use strict'
+
+	var base64 = __webpack_require__(16)
+	var ieee754 = __webpack_require__(14)
+	var isArray = __webpack_require__(15)
 
 	exports.Buffer = Buffer
 	exports.SlowBuffer = SlowBuffer
@@ -22297,8 +21880,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return new Buffer(arg)
 	  }
 
-	  this.length = 0
-	  this.parent = undefined
+	  if (!Buffer.TYPED_ARRAY_SUPPORT) {
+	    this.length = 0
+	    this.parent = undefined
+	  }
 
 	  // Common case.
 	  if (typeof arg === 'number') {
@@ -22429,6 +22014,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	if (Buffer.TYPED_ARRAY_SUPPORT) {
 	  Buffer.prototype.__proto__ = Uint8Array.prototype
 	  Buffer.__proto__ = Uint8Array
+	} else {
+	  // pre-set for values that may exist in the future
+	  Buffer.prototype.length = undefined
+	  Buffer.prototype.parent = undefined
 	}
 
 	function allocate (that, length) {
@@ -22578,10 +22167,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}
 	Buffer.byteLength = byteLength
-
-	// pre-set for values that may exist in the future
-	Buffer.prototype.length = undefined
-	Buffer.prototype.parent = undefined
 
 	function slowToString (encoding, start, end) {
 	  var loweredCase = false
@@ -23752,10 +23337,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return i
 	}
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(14).Buffer, (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(13).Buffer, (function() { return this; }())))
 
 /***/ },
-/* 15 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -23845,46 +23430,18 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 16 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	
-	/**
-	 * isArray
-	 */
+	var toString = {}.toString;
 
-	var isArray = Array.isArray;
-
-	/**
-	 * toString
-	 */
-
-	var str = Object.prototype.toString;
-
-	/**
-	 * Whether or not the given `val`
-	 * is an array.
-	 *
-	 * example:
-	 *
-	 *        isArray([]);
-	 *        // > true
-	 *        isArray(arguments);
-	 *        // > false
-	 *        isArray('');
-	 *        // > false
-	 *
-	 * @param {mixed} val
-	 * @return {bool}
-	 */
-
-	module.exports = isArray || function (val) {
-	  return !! val && '[object Array]' == str.call(val);
+	module.exports = Array.isArray || function (arr) {
+	  return toString.call(arr) == '[object Array]';
 	};
 
 
 /***/ },
-/* 17 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
